@@ -6,7 +6,7 @@ class SongItem extends Component{
 		return (
       <tr>
 
-        <td></td>
+        <td><img className = "thumbnail" src = { this.props.song.image } /></td>
         <td>{ this.props.song.name_tw }</td>
         <td>{ this.props.song.BPM }</td>
         <td>{ this.props.song.length.substring(3 , 8) }</td>

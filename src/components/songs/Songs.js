@@ -10,7 +10,6 @@ class Songs extends Component{
     axios.get('http://localhost/mltd/public/api/v1/songs')
       .then(res => {
       	this.setState({ songs: res.data });
-      	console.log('a');
       });
   }
 
@@ -19,22 +18,26 @@ class Songs extends Component{
       <SongItem key={song.id} song={song} />
     ));
 		return (
-      <table className = 'row'>
-        <thead>
-          <tr>
+      <div className = 'row'>
+        <div className = 'col-md-1' />
+        <table className = 'col-md-10 row'>
+          <thead>
+            <tr>
 
-            <th className = 'col-md-1'> </th>
-            <th className = 'col-md-5'>歌名</th>
-            <th className = 'col-md-2'>BPM</th>
-            <th className = 'col-md-2'>長度</th>
-            <th className = 'col-md-2'>類型</th>
+              <th className = 'col-md-1'> </th>
+              <th className = 'col-md-5'>歌名</th>
+              <th className = 'col-md-2'>BPM</th>
+              <th className = 'col-md-2'>長度</th>
+              <th className = 'col-md-2'>類型</th>
 
-          </tr>
-        </thead>
-        <tbody>
-          {fields}
-        </tbody>
-      </table>
+            </tr>
+          </thead>
+          <tbody>
+            {fields}
+          </tbody>
+        </table>
+        <div className = 'col-md-1' />
+      </div>
 
       );
 	}

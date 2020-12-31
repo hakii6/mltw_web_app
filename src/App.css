@@ -1,10 +1,47 @@
-* {
-  font-family: 微軟正黑體;
-  
-}
-
 body {
+	font-family: 微軟正黑體;
   background-color: #FFE4B5;
   color: #8B6914;
   font-size: 17px;
+}
+
+.content {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #FFB90F;
+  background-color: #FFFFE0;
+  padding: 20px;   
+}
+
+table {
+	border: 1px solid #FFB90F;
+}
+
+th {
+  padding: 1px;
+  font-weight: bold;
+  border: 1px solid #FFB90F;
+  text-align: center;
+}
+
+td {
+  padding: 1px;
+  border: 1px solid #FFB90F;
+  text-align: center;
+}
+
+
+.thumbnail {
+  width: 75px;
+}
+
+.menu {
+  border-width: 0px;
+  border-color: #FA8072;
+  background-color: #FFA500;
+  margin: 10px 0px 10px 0px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 15px;
 }
