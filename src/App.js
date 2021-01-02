@@ -5,6 +5,7 @@ import Events from './components/events/Events';
 import Gachas from './components/gachas/Gachas';
 import Idols from './components/idols/Idols';
 import Songs from './components/songs/Songs';
+import Cards from './components/cards/Cards';
 import './App.css';
 
 class App extends Component{
@@ -24,6 +25,7 @@ class App extends Component{
                 <Route path="/gachas" component={Gachas} />
                 <Route path="/idols" component={Idols} />
                 <Route path="/songs" component={Songs} />
+                <Route path="/cards" component={Cards} />
               </div>
             </div>
           </div>

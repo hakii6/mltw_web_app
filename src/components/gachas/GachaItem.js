@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Moment from 'moment';
 
 class GachaItem extends Component{
 
   render() {
-		return (
+    let fields;
+    if (this.props.gacha.Cards) {
+      fields = this.props.gacha.Cards.map((Card) => (
+                <Link to={ "/cards/" + Card.ID }><b>{ Card.NameTW }</b><br/></Link>
+                ));
+    }
+    return (
       <div className='row'>
         <div className='col-md-1' />
         <div className='col-md-10'>
           <table>
             <thead>
               <tr className='row'>
-                <th className='col-md-6'>{ this.props.gacha.name_tw }</th>
-                <th className='col-md-6'>{ this.props.gacha.start_date } ~ { this.props.gacha.end_date }</th>
+                <th className='col-md-6'>{ this.props.gacha.NameTW }</th>
+                <th className='col-md-6'>
+                  { Moment(this.props.gacha.StartDate).format('YYYY-MM-DD') } ~ 
+                  { Moment(this.props.gacha.EndDate).format('YYYY-MM-DD') }
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr className='row'>
                 <td height='200'>
-                  <img src={ this.props.gacha.image } width ='420px' />
+                  <img src={ this.props.gacha.Image } width ='420px' />
                 </td>
 
                 <td >
-                  <b>{ this.props.gacha.cards.map((card) => (
-                    <div>{ card.name_tw }</div>
-                    )) }
+                  <b>{ fields }
                   </b>
                 </td>
               </tr>
@@ -34,7 +43,7 @@ class GachaItem extends Component{
         <div className='col-md-1' />
         
       </div>
-		);
+    );
 	}
 }
 

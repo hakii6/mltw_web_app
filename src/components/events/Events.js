@@ -47,7 +47,7 @@ class Events extends Component{
 		return (
       <div>
         <a style={ switchStyle } href="#" onClick={this.handleClick}>
-           > 切換版本點我
+           > 看未來視點我(目前為: { this.state.server })
         </a>
         <br/>
         <br/>
