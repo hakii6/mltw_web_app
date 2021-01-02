@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link, useParams, Route } from 'react-router-dom';
 import axios from 'axios';
 
+import env from '../env';
+
 class CardPage extends Component{
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class CardPage extends Component{
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:8001/api/v0/cards/' + this.params.ID )
+    axios.get(env.api + 'v0/cards/' + this.params.ID )
       .then(res => {
         this.setState({ card: res.data });
         this.setState({ idol: this.state.card.Idol });

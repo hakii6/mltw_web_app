@@ -4,12 +4,14 @@ import SongItem from './SongItem';
 import SongPage from './SongPage';
 import axios from 'axios';
 
+import env from '../env';
+
 class Songs extends Component{
   state = {
     songs: []
   }
   componentDidMount() {
-    axios.get('http://localhost:8001/api/v0/songs')
+    axios.get(env.api + 'v0/songs')
       .then(res => {
       	this.setState({ songs: res.data });
       });

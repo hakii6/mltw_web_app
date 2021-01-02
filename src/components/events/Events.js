@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import EventItem from './EventItem';
 import axios from 'axios';
 
+import env from '../env';
+
 class Events extends Component{
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ class Events extends Component{
   }
   
   componentDidMount() {
-    axios.get('http://localhost:8001/api/v0/events')
+    axios.get(env.api + 'v0/events')
       .then(res => {
       	this.setState({ events: res.data });
         this.setState({ events_jp: this.state.events

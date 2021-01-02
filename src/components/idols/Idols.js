@@ -4,6 +4,8 @@ import IdolItem from './IdolItem';
 import IdolPage from './IdolPage';
 import axios from 'axios';
 
+import env from '../env';
+
 class Idols extends Component{
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class Idols extends Component{
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:8001/api/v0/idols')
+    axios.get(env.api + 'v0/idols')
       .then(res => {
       	this.setState({ idols: res.data });
         console.log(this.state.idols);

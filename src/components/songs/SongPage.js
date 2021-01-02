@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import env from '../env';
+
 class SongPage extends Component{
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class SongPage extends Component{
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:8001/api/v0/songs/' + this.params.ID )
+    axios.get(env.api + 'v0/songs/' + this.params.ID )
       .then(res => {
         this.setState({ song: res.data });
         console.log(this.state.song);

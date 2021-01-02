@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import GachaItem from './GachaItem';
 import axios from 'axios';
 
+import env from '../env';
+
 class Gachas extends Component{
   constructor(props) {
     super(props);
@@ -14,7 +16,8 @@ class Gachas extends Component{
     this.handleClick = this.handleClick.bind(this)
   }
   componentDidMount() {
-    axios.get('http://localhost:8001/api/v0/gachas')
+    console.log(env);
+    axios.get(env.api + 'v0/gachas')
       .then(res => {
         this.setState({ gachas: res.data });
         this.setState({ gachas_jp: this.state.gachas
