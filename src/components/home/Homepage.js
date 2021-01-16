@@ -19,6 +19,7 @@ class Homepage extends Component{
         之前舊有的功能（包含所有排版）<br/>
         因目前整個網站大改（前後端都換了新框架）<br/>
         故請稍待一段時間<br/>
+        <div style={switchStyle2}>每天都有在更新</div>
 
         <br/>
         <div>
@@ -93,6 +94,13 @@ const switchStyle = {
   textAlign: 'center',
   fontSize: '18px',
   fontWeight: 'bold'
+}
+
+const switchStyle2 = {
+  textAlign: 'center',
+  fontSize: '36px',
+  fontWeight: 'bold',
+  color: 'red'
 }
 
 const leftStyle = {
