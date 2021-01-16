@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
+
+import Homepage from './components/home/Homepage';
 import Events from './components/events/Events';
 import Gachas from './components/gachas/Gachas';
 import Idols from './components/idols/Idols';
@@ -21,7 +23,7 @@ class App extends Component{
               
               <Header />
               <div className="content">
-                <Route exact path="/"></Route>
+                <Route exact path="/" component={Homepage} />
                 <Route path="/events" component={Events} />
                 <Route path="/gachas" component={Gachas} />
                 <Route path="/idols" component={Idols} />
