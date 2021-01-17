@@ -8,6 +8,7 @@ import Gachas from './components/gachas/Gachas';
 import Idols from './components/idols/Idols';
 import Songs from './components/songs/Songs';
 import Cards from './components/cards/Cards';
+import Calculators from './components/calculators/Calculators';
 import './App.css';
 
 class App extends Component{
@@ -29,6 +30,7 @@ class App extends Component{
                 <Route path="/idols" component={Idols} />
                 <Route path="/songs" component={Songs} />
                 <Route path="/cards" component={Cards} />
+                <Route path="/cal" component={Calculators} />
               </div>
             </div>
           </div>
