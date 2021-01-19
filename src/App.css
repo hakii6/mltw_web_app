@@ -45,3 +45,11 @@ td {
   font-weight: bold;
   border-radius: 15px;
 }
+
+hr{
+
+    border:1px solid;
+    border-radius:2px;  
+    margin: 35px 0px 35px 0px;
+
+}

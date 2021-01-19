@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TheaterCal extends Component{
+class TheaterCalB extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -8,6 +8,7 @@ class TheaterCal extends Component{
       energy_limit: 120,
       energy_extra: 0,
       work: 100,
+      work_diff: 30,
       normal_diff: "MM",
       event_diff: "MM"
     };
@@ -39,20 +40,25 @@ class TheaterCal extends Component{
 
 
 
-    var energy_total = parseInt(this.state.stone / 50) * this.state.energy_limit + this.state.energy_extra;
-    var energy_on_work = parseInt(energy_total * this.state.work) / 100;
-    var energy_on_live = parseInt(energy_total - energy_on_work);
+    const energy_total = parseInt(this.state.stone / 50) * this.state.energy_limit + this.state.energy_extra;
+    const energy_on_work = parseInt(energy_total * this.state.work / 100);
+    const energy_on_live = parseInt(energy_total - energy_on_work);
+
+    var work_count = parseInt(energy_on_work / this.state.work_diff);
+    var normal_live_count = parseInt(energy_on_live / normal_cost);
+    var ticket_live_count = parseInt(energy_on_work / 300);
+
+    this.setState({work_count: work_count});
+    this.setState({normal_live_count: normal_live_count});
+    this.setState({ticket_live_count: ticket_live_count});
+    this.setState({normal_live_total_count: normal_live_count + ticket_live_count});
 
     var item_get = parseInt((energy_on_work * 0.7 + energy_on_live * 1) / normal_cost) * normal_item ;
     var point_on_normal = item_get;
-    var point_on_event = parseInt(item_get * event_pt) / event_cost;
+    var point_on_event = parseInt(item_get / event_cost) * event_pt;
 
-    var point_total = parseInt(point_on_normal + point_on_event);
-
-    this.setState({
-      result: point_total
-    });
-
+    this.setState({item_total: parseInt(item_get)});
+    this.setState({point_total: parseInt(point_on_normal + point_on_event)});
 
     event.preventDefault();
   }
@@ -62,7 +68,6 @@ class TheaterCal extends Component{
 
 		return (
       <div>
-        還沒完成!!!!!!!!!!!!!!!!!!!!!!!!!!!
         <form onSubmit={this.handleSubmit}>
           <label>
             準備石頭：
@@ -77,12 +82,24 @@ class TheaterCal extends Component{
           <label>
             準備體力：
             <input type="number" name="energy_extra" value={this.state.energy_extra} onChange={this.handleInputChange} min="0" max="9999999"/>
-          </label>
+          </label><br/>
 
           <label>
             工作佔比(%)：
             <input type="number" name="work" value={this.state.work} onChange={this.handleInputChange} min="0" max="100"/>
           </label>
+
+          <label>
+            工作類型：
+            <select name="work_diff" value={this.state.work_diff} onChange={this.handleInputChange}>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+            </select>
+          </label><br/>
 
           <label>
             所打一般曲難度：
@@ -104,14 +121,21 @@ class TheaterCal extends Component{
               <option value="6M">6M</option>
               <option value="MM">MM</option>
             </select>
-          </label>
+          </label><br/>
           <input type="submit" value="Submit" />
 
         </form>
 
+        <hr/>
         <div>
-          結果：
-          <div>總分：{this.state.result}</div>
+          <div>總分：{this.state.point_total}</div>
+          <div>工作次數：{this.state.work_count}</div>
+          <div>一般演唱會次數（不含消券）：{this.state.normal_live_count}</div>
+          <div>消券演唱會次數：{this.state.ticket_live_count}</div>
+          <div>一般演唱會次數（含消券）：{this.state.normal_live_total_count}</div>
+
+          <div>活動曲次數：{this.state.point_total}</div>
+          <div>總道具量：{this.state.item_total}</div>
         </div>
       </div>
 		);
@@ -119,4 +143,4 @@ class TheaterCal extends Component{
 }
 
 
-export default TheaterCal;
+export default TheaterCalB;

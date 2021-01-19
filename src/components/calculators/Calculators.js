@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-import TheaterCal from './TheaterCal';
-import TourCal from './TourCal';
+import TheaterCalA from './TheaterCalA';
+import TheaterCalB from './TheaterCalB';
+import TheaterCalC from './TheaterCalC';
+import TourCalA from './TourCalA';
+import TourCalB from './TourCalB';
+import TourCalC from './TourCalC';
 
 class Calculators extends Component{
   render() {
@@ -14,9 +18,9 @@ class Calculators extends Component{
               集物<span className="caret"></span>
             </button>
             <ul className = "dropdown-menu" role="menu">
-              <li><Link to="/cal/theater/1">總分預測</Link></li>
-              <li><Link to="/cal/theater/2">資源消耗預測</Link></li>
-              <li><Link to="/cal/theater/3">控分</Link></li>
+              <li><Link to="/cal/theater/A">總分預測</Link></li>
+              <li><Link to="/cal/theater/B">資源消耗預測</Link></li>
+              <li><Link to="/cal/theater/C">控分</Link></li>
             </ul>
           </div>
 
@@ -25,15 +29,19 @@ class Calculators extends Component{
               巡演<span className="caret"></span>
             </button>
             <ul className="dropdown-menu" role="menu">
-              <li><Link to="/cal/tour/1">總分預測</Link></li>
-              <li><Link to="/cal/tour/2">資源消耗預測</Link></li>
-              <li><Link to="/cal/tour/3">控分</Link></li>
+              <li><Link to="/cal/tour/A">總分預測</Link></li>
+              <li><Link to="/cal/tour/B">資源消耗預測</Link></li>
+              <li><Link to="/cal/tour/C">控分</Link></li>
             </ul>
           </div>
         </div>
         <Switch>
-          <Route path="/cal/theater/:ID" component={TheaterCal} />
-          <Route path="/cal/tour/:ID" component={TourCal} />
+          <Route path="/cal/theater/A" component={TheaterCalA} />
+          <Route path="/cal/theater/B" component={TheaterCalB} />
+          <Route path="/cal/theater/C" component={TheaterCalC} />
+          <Route path="/cal/tour/A" component={TourCalA} />
+          <Route path="/cal/tour/B" component={TourCalB} />
+          <Route path="/cal/tour/C" component={TourCalC} />
         </Switch>
       </div>
 		);
