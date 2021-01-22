@@ -6,7 +6,7 @@ class TourCal extends Component{
   render() {
 
     return (
-      <div>asdasdsad</div>
+      <div><div className="alert alert-danger">本計算機尚未完成</div></div>
     );
   }
 }

@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 
 class TourCalB extends Component{
   constructor(props) {
+    super(props);
+    this.params = this.props.match.params;
+    this.state = {
+    }
   }
   render() {
 
     return (
-      <div>asdasdsad</div>
+      <div>        
+      	<div className="alert alert-danger">本計算機尚未完成</div>
+			</div>
     );
   }
 }

@@ -43,7 +43,7 @@ class Homepage extends Component{
                 <li>偶像：排版</li>
                 <li>歌曲：譜面串連、歌曲排序與篩選</li>
                 <li>卡片：分類、排序</li>
-                <li>各式計算機：頁面、控分與碎石預測</li>
+                <li>各式計算機：頁面、<span style={crossStyle}>控分</span>與碎石預測</li>
                 <li>關於本站：全部</li>
               </ul>
             </div>

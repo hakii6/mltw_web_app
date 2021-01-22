@@ -68,6 +68,7 @@ class TheaterCalB extends Component{
 
 		return (
       <div>
+        <div className="alert alert-danger">本計算機尚未完成</div>
         <form onSubmit={this.handleSubmit}>
           <label>
             準備石頭：
