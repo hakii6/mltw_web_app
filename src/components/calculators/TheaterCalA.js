@@ -26,13 +26,13 @@ class TheaterCalA extends Component{
   }
   handleSubmit(event) {
     const normal_cost_dict = {'2M': 15, '2M+': 25, '4M': 20, '6M': 25, 'MM': 30}
-    const normal_pt_dict = {'2M': 35, '2M+': 62, '4M': 49, '6M': 64, 'MM': 85}
+    // const normal_pt_dict = {'2M': 35, '2M+': 62, '4M': 49, '6M': 64, 'MM': 85}
     const normal_item_dict = {'2M': 35, '2M+': 62, '4M': 49, '6M': 64, 'MM': 85}
     const event_pt_dict = {'2M': 269, '2M+': 447, '4M': 358, '6M': 447, 'MM': 537}
     const event_cost_dict = {'2M': 90, '2M+': 150, '4M': 120, '6M': 150, 'MM': 180}
 
     const normal_cost = normal_cost_dict[this.state.normal_diff];
-    const normal_pt = normal_pt_dict[this.state.normal_diff];
+    // const normal_pt = normal_pt_dict[this.state.normal_diff];
     const normal_item = normal_item_dict[this.state.normal_diff];
 
     const event_cost = event_cost_dict[this.state.event_diff];

@@ -60,7 +60,6 @@ class Idols extends Component{
 	}
 }
 
-const switchStyle = {
-}
+
 
 export default Idols;

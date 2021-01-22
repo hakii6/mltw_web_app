@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, useParams, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import env from '../env';

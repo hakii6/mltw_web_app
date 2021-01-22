@@ -34,12 +34,12 @@ class Gachas extends Component{
   handleClick(e) {
     e.preventDefault();
     this.setState(state => ({
-      server: (this.state.server == "tw"  ? "jp" : "tw")
+      server: (this.state.server === "tw"  ? "jp" : "tw")
     }));
   }
   render() {
     let fields;
-    if (this.state.server == "tw") {
+    if (this.state.server === "tw") {
       fields = this.state.gachas_tw.map((gacha) => <GachaItem key={gacha.ID} gacha={gacha} />);
       console.log(this.state.server);
     } else {

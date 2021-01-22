@@ -9,6 +9,7 @@ import Idols from './components/idols/Idols';
 import Songs from './components/songs/Songs';
 import Cards from './components/cards/Cards';
 import Calculators from './components/calculators/Calculators';
+import Maps from './components/songs/maps/Maps';
 import './App.css';
 
 class App extends Component{
@@ -31,6 +32,7 @@ class App extends Component{
                 <Route path="/songs" component={Songs} />
                 <Route path="/cards" component={Cards} />
                 <Route path="/cal" component={Calculators} />
+                <Route path="/maps" component={Maps} />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import env from '../env';
+// import env from '../env';
 
 class Homepage extends Component{
   state = {

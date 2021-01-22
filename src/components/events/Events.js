@@ -34,12 +34,12 @@ class Events extends Component{
   handleClick(e) {
     e.preventDefault();
     this.setState(state => ({
-      server: (this.state.server == "tw"  ? "jp" : "tw")
+      server: (this.state.server === "tw"  ? "jp" : "tw")
     }));
   }
   render() {
     let fields;
-    if (this.state.server == "tw") {
+    if (this.state.server === "tw") {
       fields = this.state.events_tw.map((event) => <EventItem key={event.ID} event={event} />);
       console.log(this.state.server);
     } else {

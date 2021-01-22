@@ -53,3 +53,12 @@ hr{
     margin: 35px 0px 35px 0px;
 
 }
+
+#canvas {
+   width: 100%;
+   text-align:center;
+}
+
+canvas {
+   display: inline;
+}
