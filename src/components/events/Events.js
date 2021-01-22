@@ -1,66 +1,47 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import EventItem from './EventItem';
 import axios from 'axios';
 
 import env from '../env';
 
-class Events extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      events: [],
-      events_tw: [],
-      events_jp: [],
-      server: "tw",
-    };
-    this.handleClick = this.handleClick.bind(this)
-  }
-  
-  componentDidMount() {
-    axios.get(env.api + 'v0/events')
-      .then(res => {
-      	this.setState({ events: res.data });
-        this.setState({ events_jp: this.state.events
-          .filter((event) => (Date.parse(event.StartDate) > Date.now()))
-          .sort((a, b) => a.StartDate > b.StartDate ? 1 : -1)
-        });
-        this.setState({ events_tw: this.state.events
-          .filter((event) => (Date.parse(event.StartDate) < Date.now()))
-          .sort((a, b) => a.StartDate <= b.StartDate ? 1 : -1)
-        });
-        console.log(this.state.events);
-      });
-  }
-  handleClick(e) {
-    e.preventDefault();
-    this.setState(state => ({
-      server: (this.state.server === "tw"  ? "jp" : "tw")
-    }));
-  }
-  render() {
-    let fields;
-    if (this.state.server === "tw") {
-      fields = this.state.events_tw.map((event) => <EventItem key={event.ID} event={event} />);
-      console.log(this.state.server);
-    } else {
-      fields = this.state.events_jp.map((event) => <EventItem key={event.ID} event={event} />);
-      console.log(this.state.server);
+function Events() {
+
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [years, setYears] = useState(initYears);
+  const [events, setEvents] = useState([]);
+
+  function initYears() {
+    var tmp = [];
+    for (var i = 2019; i < new Date().getFullYear() + 2; i++) {
+      tmp.push(i);
     }
-		return (
-      <div>
-        <a style={ switchStyle } href="#" onClick={this.handleClick}>
-           > 看未來視點我(目前為: { this.state.server })
-        </a>
-        <br/>
-        <br/>
-        { fields }
-      </div>
+    return tmp;
+  }
 
-    );
-	}
-}
+  useEffect(() => {
 
-const switchStyle = {
+    let ignore = false;
+
+    async function fetchData() {
+      const result = await axios(env.api + 'v1/events?year=' + year);
+      if (!ignore) setEvents(result.data);
+    }
+    fetchData();
+    // const fields = events.map((event) => <EventItem key={event.ID} event={event} />);
+    return () => { ignore = true;}
+  }, []);
+  
+	return (
+    <div>
+      {years.map((year) => <button key={year} type="button" className="btn btn-primary">{year}</button>)}
+      <br/>
+      {events.map((event) => <EventItem key={event.ID} event={event} />)}
+      <br/>
+      <br/>
+    </div>
+
+  );
+	// }
 }
 
 export default Events;
