@@ -17,23 +17,21 @@ function Events() {
     }
     return tmp;
   }
-
   useEffect(() => {
 
     let ignore = false;
 
     async function fetchData() {
       const result = await axios(env.api + 'v1/events?year=' + year);
-      if (!ignore) setEvents(result.data);
+      if (!ignore) setEvents(result.data.sort((a, b) => a.StartDate > b.StartDate ? 1 : -1));
     }
     fetchData();
-    // const fields = events.map((event) => <EventItem key={event.ID} event={event} />);
     return () => { ignore = true;}
-  }, []);
+  }, [year]);
   
 	return (
     <div>
-      {years.map((year) => <button key={year} type="button" className="btn btn-primary">{year}</button>)}
+      {years.map((y) => <button key={y} type="button" className="btn btn-primary" onClick={() => setYear(y)}>{y}</button>)}
       <br/>
       {events.map((event) => <EventItem key={event.ID} event={event} />)}
       <br/>

@@ -14,7 +14,7 @@ class Idols extends Component{
     };
   }
   componentDidMount() {
-    axios.get(env.api + 'v0/idols')
+    axios.get(env.api + 'v1/idols')
       .then(res => {
       	this.setState({ idols: res.data });
         console.log(this.state.idols);

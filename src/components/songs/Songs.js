@@ -11,7 +11,7 @@ class Songs extends Component{
     songs: []
   }
   componentDidMount() {
-    axios.get(env.api + 'v0/songs')
+    axios.get(env.api + 'v1/songs')
       .then(res => {
       	this.setState({ songs: res.data });
       });
