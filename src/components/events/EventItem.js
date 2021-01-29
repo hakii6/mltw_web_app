@@ -47,8 +47,9 @@ function EventItem(props) {
               </td>
 
               <td >
-                <b>
-                </b>
+                { event.Cards !== null &&
+                  event.Cards.map((Card, _) => <Link to={ "/cards/" + Card.ID }><b>{ Card.NameTW }</b><br/></Link>)
+                }
               </td>
             </tr>
 
